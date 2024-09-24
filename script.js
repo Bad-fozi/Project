@@ -7,7 +7,7 @@ let adaptive = true;
 
 let costScreenPrice = "Стоимость верстки экранов " + screenPrice + " рублей/ долларов/гривен/юани";
 let costFullPrice = "Стоимость разработки сайта " + fullPrice + " рублей/ долларов/гривен/юани";
-
+//let changeScreens = (screens.toLowerCase);
 let costRollback = "Процент отката посреднику за работу: " + (fullPrice * (rollback/100)) + " рублей/ долларов/гривен/юани";
 
 console.log(typeof title);
@@ -18,7 +18,7 @@ console.log(screens.length);
 
 console.log(costScreenPrice);
 console.log(costFullPrice);
-console.log();
+console.log(screens.toLowerCase().split(", "));
 console.log(costRollback);
 
 
