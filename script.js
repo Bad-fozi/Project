@@ -1,24 +1,35 @@
-let title = "Обучение";
-let screens = "Простые, Сложные, Интерактивные";
-let screenPrice = 1500;
-let rollback = 59;
-let fullPrice = 5000;
-let adaptive = true;
+'use strict';
 
-let costScreenPrice = "Стоимость верстки экранов " + screenPrice + " рублей/ долларов/гривен/юани";
-let costFullPrice = "Стоимость разработки сайта " + fullPrice + " рублей/ долларов/гривен/юани";
-//let changeScreens = (screens.toLowerCase);
-let costRollback = "Процент отката посреднику за работу: " + (fullPrice * (rollback/100)) + " рублей/ долларов/гривен/юани";
+let rollback = 0;
+let title = prompt("Как называется Ваш проект?");
+let screens = prompt("Какие типы экранов нужно разработать, Простые, Сложные, Интерактивные?");
+let screenPrice = +prompt("Сколько будет стоить данная работа?");
+let adaptive = confirm("Нужен ли адаптив на сайте?");
+let service1 = prompt("Какрй дополнительный тип услуги нужен?");
+let servicePrice1 = +prompt("Сколько это будет стоить?");
+let service2 = prompt("Какрй дополнительный тип услуги нужен?");
+let servicePrice2 = +prompt("Сколько это будет стоить?");
 
-console.log(typeof title);
-console.log(typeof fullPrice);
-console.log(typeof adaptive);
+let fullPrice = (screenPrice + servicePrice1 + servicePrice2);
 
-console.log(screens.length);
+switch (true) {
+    case fullPrice >= 30000:
+    rollback = 10;
+    console.log("Даём скидку в 10%");
+    break;
 
-console.log(costScreenPrice);
-console.log(costFullPrice);
-console.log(screens.toLowerCase().split(", "));
-console.log(costRollback);
+    case fullPrice >= 15000 && fullPrice < 30000:
+    rollback = 5;
+    console.log("Даём скидку в 5%");
+    break;
+    case fullPrice >= 0 && fullPrice < 15000:
+    console.log("Скидка не предусмотрена");
+    break;
+    case fullPrice < 0:
+    console.log("Что-то пошло не так");
+    break;
 
+} 
 
+let servicePercentPrice = Math.ceil(fullPrice - fullPrice * rollback/100);
+console.log(servicePercentPrice);
